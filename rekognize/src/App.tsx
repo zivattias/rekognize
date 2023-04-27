@@ -8,10 +8,19 @@ import { API_UPLOAD_URL } from "./consts";
 function App() {
   const [loading, setLoading] = React.useState(false);
   const [file, setFile] = React.useState<File>();
+  const [error, setError] = React.useState<string>("");
 
   const [celebrity, setCelebrity] = React.useState<Array<string>>();
 
+  React.useEffect(() => {
+    console.log(celebrity);
+    if (celebrity?.[0].includes("Error")) {
+      setError(celebrity[0]);
+    }
+  }, [celebrity]);
+
   const sendRequest = async (blob: Blob) => {
+    setError("");
     const formData = new FormData();
     formData.append("file", blob);
 
@@ -65,7 +74,7 @@ function App() {
           Rekognize
         </LoadingButton>
         {celebrity && !loading && (
-          <Typography variant="h2">
+          <Typography color={error && "#ff6347"} variant="h3">
             {celebrity.length > 1 ? celebrity.join(", ") : celebrity[0]}
           </Typography>
         )}

@@ -33,7 +33,7 @@ bucket = s3.Bucket(f"{os.getenv('S3_BUCKET_NAME')}")
 client = boto3.client(
     "rekognition",
     aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
-    aws_secret_access_key=os.getenv("AWS_SECRET_KEY"),
+    aws_secret_access_key=os.getenv("AWS_SECRET_KEY_IDj"),
     region_name=os.getenv("REGION"),
 )
 
@@ -52,8 +52,12 @@ async def detect_celebs(
         if is_s3
         else client.recognize_celebrities(Image={"Bytes": image_data})
     )
-
-    return [celebrity["Name"] for celebrity in response["CelebrityFaces"]]
+    print(response)
+    return (
+        [celebrity["Name"] for celebrity in response["CelebrityFaces"]]
+        if len(response["CelebrityFaces"]) > 1
+        else ["Error: Couldn't find any celebrities!"]
+    )
 
 
 @app.get("/")
