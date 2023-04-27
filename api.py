@@ -32,9 +32,9 @@ s3 = boto3.resource("s3")
 bucket = s3.Bucket(f"{os.getenv('S3_BUCKET_NAME')}")
 client = boto3.client(
     "rekognition",
-    aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
-    aws_secret_access_key=os.getenv("AWS_SECRET_KEY_IDj"),
-    region_name=os.getenv("REGION"),
+    aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+    region_name=os.getenv("AWS_REGION"),
 )
 
 
