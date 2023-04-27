@@ -86,9 +86,3 @@ async def upload_file(file: Optional[UploadFile] = None):
         celebrities = await detect_celebs(is_s3=True, image_key=file_key)
 
     return celebrities
-
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="rekognize.vercel.app", port=8000)

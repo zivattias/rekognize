@@ -1,5 +1,5 @@
 const API = {
-    URL: process.env.NODE_ENV == "development" ? "http://0.0.0.0:" : "rekognize.vercel.app",
+    URL: process.env.NODE_ENV == "development" ? "http://0.0.0.0:" : "https://rekognize.vercel.app",
     PORT: process.env.NODE_ENV == "development" ? "8000" : "",
 }
 

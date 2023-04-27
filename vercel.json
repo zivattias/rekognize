@@ -1,14 +1,21 @@
 {
-    "builds": [
-      {
-        "src": "api.py",
-        "use": "@vercel/python"
-      }
-    ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "api.py"
+      { "src": "/api/(.*)", "dest": "api.py" },
+      { "src": "/(.*)", "dest": "rekognize/index.html" }
+    ],
+    "builds": {
+      "backend": {
+        "use": "@vercel/python",
+        "entrypoint": "api.py",
+        "env": {
+          "PYTHONUNBUFFERED": "true",
+          "WEB_CONCURRENCY": "1"
+        }
+      },
+      "frontend": {
+        "use": "@vercel/static-build",
+        "entrypoint": "npm run build",
+        "outputDirectory": "rekognize/build"
       }
-    ]
+    }
   }
