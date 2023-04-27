@@ -1,13 +1,7 @@
 {
-    "routes": [
-      { "src": "/api/(.*)", "dest": "api.py" },
-      { "src": "/(.*)", "dest": "rekognize/index.html" }
-    ],
-    "builds": [
-        { "src": "rekognize/package.json", "use": "@vercel/static-build" },
-        {
-          "src": "api.py",
-          "use": "@vercel/python"
-        }
-      ]
-  }
+    "builds": [{ "src": "api.py", "use": "@vercel/python" }],
+	"routes": [
+		{ "src": "/api/(.*)", "dest": "api.py" },
+		{ "src": "/(.*)", "dest": "rekognize/index.html" }
+	]
+}
