@@ -3,7 +3,7 @@
       { "src": "/api/(.*)", "dest": "api.py" },
       { "src": "/(.*)", "dest": "rekognize/index.html" }
     ],
-    "builds": {
+    "build": {
       "backend": {
         "use": "@vercel/python",
         "entrypoint": "api.py",
