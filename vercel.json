@@ -3,19 +3,11 @@
       { "src": "/api/(.*)", "dest": "api.py" },
       { "src": "/(.*)", "dest": "rekognize/index.html" }
     ],
-    "build": {
-      "backend": {
-        "use": "@vercel/python",
-        "entrypoint": "api.py",
-        "env": {
-          "PYTHONUNBUFFERED": "true",
-          "WEB_CONCURRENCY": "1"
+    "builds": [
+        { "src": "rekognize/package.json", "use": "@vercel/static-build" },
+        {
+          "src": "api.py",
+          "use": "@vercel/python"
         }
-      },
-      "frontend": {
-        "use": "@vercel/static-build",
-        "entrypoint": "npm run build",
-        "outputDirectory": "rekognize/build"
-      }
-    }
+      ]
   }
