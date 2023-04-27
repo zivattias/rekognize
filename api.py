@@ -91,4 +91,4 @@ async def upload_file(file: Optional[UploadFile] = None):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="rekognize.vercel.app", port=8000)
