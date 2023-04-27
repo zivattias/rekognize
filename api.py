@@ -1,9 +1,9 @@
 from typing import Annotated, Optional
 from fastapi import FastAPI, File, UploadFile, status, Response
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from uuid import uuid4
 
-import base64
 import boto3
 import os
 
@@ -19,6 +19,14 @@ SUPPORTED_FILES = {
 }
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 s3 = boto3.resource("s3")
 bucket = s3.Bucket(f"{os.getenv('S3_BUCKET_NAME')}")
@@ -53,13 +61,13 @@ def root():
     return {"urls": "/upload_image"}
 
 
-@app.post("/files/")
-async def create_file(file: Annotated[bytes, File()]):
+@app.post("/filesize/")
+async def file_size(file: Annotated[bytes, File()]):
     return {"file_size": len(file)}
 
 
 @app.post("/upload/")
-async def create_upload_file(file: Optional[UploadFile] = None):
+async def upload_file(file: Optional[UploadFile] = None):
     if not file or file.size == 0 or file.content_type not in SUPPORTED_FILES:
         return Response(status_code=status.HTTP_400_BAD_REQUEST)
 
