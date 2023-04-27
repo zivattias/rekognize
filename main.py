@@ -69,7 +69,7 @@ async def create_upload_file(file: Optional[UploadFile] = None):
 
     else:
         uuid = str(uuid4())
-        file_key = f"{uuid}.{file.content_type.split('/')[1]}"
+        file_key = f"{uuid}.{SUPPORTED_FILES[file.content_type]}"
         bucket.put_object(Key=file_key, Body=file.file.read())
         celebrities = await detect_celebs(is_s3=True, image_key=file_key)
 
