@@ -1,6 +1,6 @@
 const API = {
-    URL: "http://0.0.0.0:",
-    PORT: "8000",
+    URL: process.env.NODE_ENV == "development" ? "http://0.0.0.0:" : "rekognize.vercel.app",
+    PORT: process.env.NODE_ENV == "development" ? "8000" : "",
 }
 
 const ENDPOINTS = {
