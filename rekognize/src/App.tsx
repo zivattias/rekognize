@@ -70,7 +70,7 @@ function App() {
             setFile(event.target.files?.[0])
           }
         />
-        <LoadingButton loading={loading} type="submit">
+        <LoadingButton disabled={!file} loading={loading} type="submit">
           Rekognize
         </LoadingButton>
         {celebrity && !loading && (
