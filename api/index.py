@@ -62,7 +62,10 @@ async def detect_celebs(
 
 @app.get("/api/")
 def root():
-    return {"urls": "/upload_image"}
+    return {
+        "urls": ["/upload/", "/filesize/"],
+        "prefix": "/api",
+    }
 
 
 @app.post("/api/filesize/")
