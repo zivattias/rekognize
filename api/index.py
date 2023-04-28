@@ -60,17 +60,17 @@ async def detect_celebs(
     )
 
 
-@app.get("/")
+@app.get("/api/")
 def root():
     return {"urls": "/upload_image"}
 
 
-@app.post("/filesize/")
+@app.post("/api/filesize/")
 async def file_size(file: Annotated[bytes, File()]):
     return {"file_size": len(file)}
 
 
-@app.post("/upload/")
+@app.post("/api/upload/")
 async def upload_file(file: Optional[UploadFile] = None):
     if not file or file.size == 0 or file.content_type not in SUPPORTED_FILES:
         return Response(status_code=status.HTTP_400_BAD_REQUEST)
