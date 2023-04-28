@@ -55,7 +55,7 @@ async def detect_celebs(
     print(response)
     return (
         [celebrity["Name"] for celebrity in response["CelebrityFaces"]]
-        if len(response["CelebrityFaces"]) > 1
+        if len(response["CelebrityFaces"]) > 0
         else ["Error: Couldn't find any celebrities!"]
     )
 
