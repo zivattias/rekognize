@@ -5,6 +5,7 @@ Rekognize lets you upload any image (jpg, jpeg, png) you like, and recognizes ce
 
 [FastAPI](https://github.com/tiangolo/fastapi) - REST API framework
    for Python (quick & efficient)\
+[Boto3](https://github.com/boto/boto3) - AWS SDK for Python\
 [React](https://github.com/facebook/react) - UI framework\
 [Vercel](https://vercel.com/) - Frontend deployment\
 [AWS EC2](https://aws.amazon.com/pm/ec2/) - Remote machine for REST API
