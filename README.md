@@ -3,13 +3,11 @@ Rekognize lets you upload any image (jpg, jpeg, png) you like, and recognizes ce
 
 ### Powered by:
 
-[FastAPI](https://github.com/tiangolo/fastapi) - REST API framework
-   for Python (quick & efficient)\
+[FastAPI](https://github.com/tiangolo/fastapi) - REST API framework for Python (quick & efficient)\
 [Boto3](https://github.com/boto/boto3) - AWS SDK for Python\
 [React](https://github.com/facebook/react) - UI framework\
 [Vercel](https://vercel.com/) - Frontend deployment\
-[AWS EC2](https://aws.amazon.com/pm/ec2/) - Remote machine for REST API
-   deployment\
+[AWS EC2](https://aws.amazon.com/pm/ec2/) - Remote machine for REST API deployment
 
 ### Usage:
  1. Click on the production link in this Git repository
@@ -18,3 +16,12 @@ Rekognize lets you upload any image (jpg, jpeg, png) you like, and recognizes ce
 
 > **Note:** Rekognize requires you to *DISABLE* Mixed-Content security settings, since I haven't purchased SSL/TLS certifications for my AWS EC2 server. This shouldn't be a fatal problem, since you're only disabling it for this specific website!
 > For more information, please visit: `chrome://settings/content/insecureContent?search=insecure` using Google Chrome.
+
+### Demo:
+
+Let's take this picture of Friends' cast and upload it to Rekognize:
+
+<div align="center"><img src="https://rekognize-celebs.s3.amazonaws.com/friends.jpg" width="200px" /></div>
+
+We get:
+<div align="center"><img src="https://rekognize-celebs.s3.amazonaws.com/Screenshot+2023-04-28+at+16.58.22.png" width="730px" /></div>
